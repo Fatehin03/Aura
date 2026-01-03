@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura | Generative Art by Fatehin Alam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { margin: 0; overflow: hidden; background: #000; }
+        canvas { display: block; }
+        
+        /* Glassmorphism Panel */
+        .glass {
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Fatehin Alam Signature Style */
+        .signature {
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+        .signature:hover { opacity: 1; }
+    </style>
+</head>
+<body class="text-white">
+
+    <div class="absolute top-6 left-6 w-64 glass p-6 rounded-2xl shadow-2xl z-10">
+        <h1 class="text-2xl font-bold mb-1 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">AURA</h1>
+        <p class="text-xs text-gray-400 mb-6">Algorithmic Design Engine</p>
+
+        <div class="space-y-4">
+            <div>
+                <label class="text-xs uppercase font-bold text-gray-500">Particle Velocity</label>
+                <input type="range" id="speedRange" min="1" max="10" value="3" class="w-full accent-purple-500 cursor-pointer">
+            </div>
+            <div>
+                <label class="text-xs uppercase font-bold text-gray-500">Connection Radius</label>
+                <input type="range" id="connectRange" min="50" max="200" value="100" class="w-full accent-pink-500 cursor-pointer">
+            </div>
+            
+            <div class="flex gap-2 mt-4">
+                <button onclick="resetCanvas()" class="flex-1 bg-gray-800 hover:bg-gray-700 py-2 rounded text-xs font-bold transition">RESET</button>
+                <button onclick="downloadArt()" class="flex-1 bg-white text-black hover:bg-gray-200 py-2 rounded text-xs font-bold transition">SAVE ART</button>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="canvas1"></canvas>
+
+    <div class="absolute bottom-6 right-8 text-right z-10 pointer-events-none">
+        <div class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Engineered by</div>
+        <div class="signature text-lg font-bold text-white">Fatehin Alam</div>
+        <div class="text-[10px] text-gray-600">© 2026 Creative Labs</div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
